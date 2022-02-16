@@ -38,7 +38,6 @@ function itemsReducer(items, action) {
 
 export default function Shopping() {
   const [items, dispatch] = useReducer(itemsReducer, initialState);
-  console.log('item', items);
 
   const handleAddItem = (text) => {
     dispatch({

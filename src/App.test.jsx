@@ -1,8 +1,17 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import App from './App';
 
-test('renders learn react link', () => {
+test('Lets you add pizza to item list', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  const addInput = screen.getByRole('textbox');
+  const inputName = 'Pizza';
+  userEvent.type(addInput, inputName);
+
+  const addBtn = screen.getByRole('button', { name: /add/i });
+  userEvent.click(addBtn);
+
+  const item = screen.getByText(/pizza/i);
+  expect(item).toBeInTheDocument();
 });
