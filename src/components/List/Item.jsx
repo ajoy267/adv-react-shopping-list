@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Item({ item, onChange, onDelete }) {
+export default function Item({ item, handleEditItem, handleDelete }) {
   const [editing, setEditing] = useState(false);
 
   let itemContent;
@@ -11,7 +11,7 @@ export default function Item({ item, onChange, onDelete }) {
         <input
           value={item.text}
           onChange={(e) => {
-            onChange({
+            handleEditItem({
               ...item,
               text: e.target.value,
             });
@@ -39,14 +39,18 @@ export default function Item({ item, onChange, onDelete }) {
         type="checkbox"
         checked={item.done}
         onChange={(e) => {
-          onChange({
+          handleEditItem({
             ...item,
             done: e.target.checked,
           });
         }}
       />
       {itemContent}
-      <button type="button" onClick={() => onDelete(item.id)} aria-label={`Delete ${item.text}`}>
+      <button
+        type="button"
+        onClick={() => handleDelete(item.id)}
+        aria-label={`Delete ${item.text}`}
+      >
         Delete
       </button>
     </div>

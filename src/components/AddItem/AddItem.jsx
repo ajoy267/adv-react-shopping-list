@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import { useShoppingList } from '../../context/ShoppingListContext';
 
-export default function AddItem({ onAddItem }) {
+export default function AddItem() {
+  const { handleAddItem } = useShoppingList();
   const [newItem, setNewItem] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setNewItem('');
-    onAddItem(newItem);
+    handleAddItem(newItem);
   };
 
   return (
