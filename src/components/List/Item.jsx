@@ -16,6 +16,7 @@ export default function Item({ item, onChange, onDelete }) {
               text: e.target.value,
             });
           }}
+          aria-label={`Edit ${item.text}`}
         />
         <button type="button" onClick={() => setEditing(false)}>
           Save
@@ -26,7 +27,7 @@ export default function Item({ item, onChange, onDelete }) {
     itemContent = (
       <div>
         <p>{item.text}</p>
-        <button type="button" onClick={() => setEditing(true)}>
+        <button type="button" onClick={() => setEditing(true)} aria-label={`Edit ${item.text}`}>
           Edit
         </button>
       </div>
@@ -45,7 +46,7 @@ export default function Item({ item, onChange, onDelete }) {
         }}
       />
       {itemContent}
-      <button type="button" onClick={() => onDelete(item.id)}>
+      <button type="button" onClick={() => onDelete(item.id)} aria-label={`Delete ${item.text}`}>
         Delete
       </button>
     </div>
