@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 import AddItem from '../../components/AddItem/AddItem';
+import List from '../../components/List/List';
 
 const initialState = [
   { id: 0, text: 'Eggs', done: false },
@@ -46,10 +47,18 @@ export default function Shopping() {
       text,
     });
   };
+
+  const handleEditItem = (choice) => {
+    dispatch({
+      type: 'edited',
+      choice,
+    });
+  };
   return (
     <div>
       <h1>Shopping List</h1>
       <AddItem onAddItem={handleAddItem} />
+      <List items={items} onChange={handleEditItem} />
     </div>
   );
 }
