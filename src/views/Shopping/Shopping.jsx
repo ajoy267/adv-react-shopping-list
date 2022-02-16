@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import AddItem from '../../components/AddItem/AddItem';
 
 const initialState = [
   { id: 0, text: 'Eggs', done: false },
@@ -35,5 +36,20 @@ function itemsReducer(items, action) {
 }
 
 export default function Shopping() {
-  return <div>Shopping</div>;
+  const [items, dispatch] = useReducer(itemsReducer, initialState);
+  console.log('item', items);
+
+  const handleAddItem = (text) => {
+    dispatch({
+      type: 'added',
+      id: items.length + 1,
+      text,
+    });
+  };
+  return (
+    <div>
+      <h1>Shopping List</h1>
+      <AddItem onAddItem={handleAddItem} />
+    </div>
+  );
 }
