@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Item({ item, onChange }) {
+export default function Item({ item, onChange, onDelete }) {
   const [editing, setEditing] = useState(false);
 
   let itemContent;
@@ -45,6 +45,9 @@ export default function Item({ item, onChange }) {
         }}
       />
       {itemContent}
+      <button type="button" onClick={() => onDelete(item.id)}>
+        Delete
+      </button>
     </div>
   );
 }

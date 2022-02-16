@@ -54,11 +54,19 @@ export default function Shopping() {
       choice,
     });
   };
+
+  const handleDelete = (choiceId) => {
+    dispatch({
+      type: 'deleted',
+      id: choiceId,
+    });
+  };
+
   return (
     <div>
       <h1>Shopping List</h1>
       <AddItem onAddItem={handleAddItem} />
-      <List items={items} onChange={handleEditItem} />
+      <List items={items} onChange={handleEditItem} onDelete={handleDelete} />
     </div>
   );
 }
