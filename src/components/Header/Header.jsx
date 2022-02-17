@@ -1,5 +1,6 @@
 import React from 'react';
 import { useShoppingList } from '../../context/ShoppingListContext';
+import './Header.css';
 
 const Header = () => {
   const { items, handleClearCart } = useShoppingList();

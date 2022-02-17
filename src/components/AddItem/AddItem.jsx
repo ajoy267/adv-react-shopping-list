@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useShoppingList } from '../../context/ShoppingListContext';
+import './AddItem.css';
 
 export default function AddItem() {
   const { handleAddItem } = useShoppingList();

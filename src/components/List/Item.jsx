@@ -7,7 +7,7 @@ export default function Item({ item, handleEditItem, handleDelete }) {
 
   if (editing) {
     itemContent = (
-      <div>
+      <div className="individual-item">
         <input
           value={item.text}
           onChange={(e) => {
@@ -25,7 +25,7 @@ export default function Item({ item, handleEditItem, handleDelete }) {
     );
   } else {
     itemContent = (
-      <div>
+      <div className="individual-item">
         <p>{item.text}</p>
         <button type="button" onClick={() => setEditing(true)} aria-label={`Edit ${item.text}`}>
           Edit
@@ -34,8 +34,9 @@ export default function Item({ item, handleEditItem, handleDelete }) {
     );
   }
   return (
-    <div>
+    <div className="item">
       <input
+        className="check"
         type="checkbox"
         checked={item.done}
         onChange={(e) => {
