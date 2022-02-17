@@ -28,6 +28,9 @@ function itemsReducer(items, action) {
     case 'deleted': {
       return items.filter((item) => item.id !== action.id);
     }
+    case 'cleared': {
+      return [];
+    }
     default: {
       throw Error(`Unknown action: ${action.type}`);
     }
@@ -61,8 +64,16 @@ function ShoppingListProvider({ children }) {
     });
   };
 
+  const handleClearCart = () => {
+    dispatch({
+      type: 'cleared',
+    });
+  };
+
   return (
-    <ShoppingListContext.Provider value={{ handleAddItem, handleEditItem, handleDelete, items }}>
+    <ShoppingListContext.Provider
+      value={{ handleAddItem, handleEditItem, handleDelete, handleClearCart, items }}
+    >
       {children}
     </ShoppingListContext.Provider>
   );
