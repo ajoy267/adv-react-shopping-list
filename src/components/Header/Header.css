@@ -1,0 +1,33 @@
+header {
+  display: flex;
+  flex-direction: row;
+  font-family: fantasy;
+}
+
+header h1 {
+  display: flex;
+  justify-content: left;
+  margin: 50px;
+}
+
+header h3 {
+  display: flex;
+  font-size: 1.5rem;
+  margin-top: 60px;
+  margin-left: 275px;
+}
+
+header button {
+  display: flex;
+  font-family: fantasy;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-top: 50px;
+  margin-right: 50px;
+  width: 130px;
+  height: 50px;
+  background-color: bisque;
+  border-radius: 50%;
+}

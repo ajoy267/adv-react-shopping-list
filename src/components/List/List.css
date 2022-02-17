@@ -1,0 +1,40 @@
+.list-items ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: fantasy;
+  margin-top: 50px;
+}
+
+.individual-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.item .check {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 50px;
+  background-color: bisque;
+}
+
+p {
+  margin-right: 20px;
+}
+
+.item button {
+  font-family: fantasy;
+  height: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: bisque;
+}
