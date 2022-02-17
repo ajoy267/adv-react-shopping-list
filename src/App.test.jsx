@@ -73,3 +73,24 @@ test('Lets you edit bread to dough', () => {
   expect(firstName).not.toBeInTheDocument();
   expect(result).toBeInTheDocument();
 });
+
+test('Checking if my clearCart Button removes my list of entries', () => {
+  render(<App />);
+
+  const clearCartBtn = screen.getByRole('button', { name: /clear cart/i });
+  const firstItem = screen.getByText(/eggs/i);
+  const firstItemEditBtn = screen.getByRole('button', { name: /edit eggs/i });
+  const firstItemDeleteBtn = screen.getByRole('button', { name: /delete eggs/i });
+  const secondItem = screen.getByText(/bread/i);
+  const secondItemEditBtn = screen.getByRole('button', { name: /edit bread/i });
+  const secondItemDeleteBtn = screen.getByRole('button', { name: /delete bread/i });
+
+  userEvent.click(clearCartBtn);
+
+  expect(firstItem).not.toBeInTheDocument();
+  expect(firstItemEditBtn).not.toBeInTheDocument();
+  expect(firstItemDeleteBtn).not.toBeInTheDocument();
+  expect(secondItem).not.toBeInTheDocument();
+  expect(secondItemEditBtn).not.toBeInTheDocument();
+  expect(secondItemDeleteBtn).not.toBeInTheDocument();
+});
