@@ -6,8 +6,6 @@ test('Checking if my initial state renders on screen', () => {
   render(<App />);
 
   const heading = screen.getByRole('heading', { name: /shopping list/i });
-  const totalItems = screen.getByRole('heading', { name: /total items: 2/i });
-  const clearCartBtn = screen.getByRole('button', { name: /clear cart/i });
   const addInput = screen.getByRole('textbox');
   const addBtn = screen.getByRole('button', { name: /add/i });
   const firstItem = screen.getByText(/eggs/i);
@@ -18,8 +16,6 @@ test('Checking if my initial state renders on screen', () => {
   const secondItemDeleteBtn = screen.getByRole('button', { name: /delete bread/i });
 
   expect(heading).toBeInTheDocument();
-  expect(totalItems).toBeInTheDocument();
-  expect(clearCartBtn).toBeInTheDocument();
   expect(addInput).toBeInTheDocument();
   expect(addBtn).toBeInTheDocument();
   expect(firstItem).toBeInTheDocument();
