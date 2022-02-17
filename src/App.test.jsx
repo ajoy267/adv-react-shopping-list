@@ -2,6 +2,34 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 
+test('Checking if my initial state renders on screen', () => {
+  render(<App />);
+
+  const heading = screen.getByRole('heading', { name: /shopping list/i });
+  const totalItems = screen.getByRole('heading', { name: /total items: 2/i });
+  const clearCartBtn = screen.getByRole('button', { name: /clear cart/i });
+  const addInput = screen.getByRole('textbox');
+  const addBtn = screen.getByRole('button', { name: /add/i });
+  const firstItem = screen.getByText(/eggs/i);
+  const firstItemEditBtn = screen.getByRole('button', { name: /edit eggs/i });
+  const firstItemDeleteBtn = screen.getByRole('button', { name: /delete eggs/i });
+  const secondItem = screen.getByText(/bread/i);
+  const secondItemEditBtn = screen.getByRole('button', { name: /edit bread/i });
+  const secondItemDeleteBtn = screen.getByRole('button', { name: /delete bread/i });
+
+  expect(heading).toBeInTheDocument();
+  expect(totalItems).toBeInTheDocument();
+  expect(clearCartBtn).toBeInTheDocument();
+  expect(addInput).toBeInTheDocument();
+  expect(addBtn).toBeInTheDocument();
+  expect(firstItem).toBeInTheDocument();
+  expect(firstItemEditBtn).toBeInTheDocument();
+  expect(firstItemDeleteBtn).toBeInTheDocument();
+  expect(secondItem).toBeInTheDocument();
+  expect(secondItemEditBtn).toBeInTheDocument();
+  expect(secondItemDeleteBtn).toBeInTheDocument();
+});
+
 test('Lets you add pizza to item list', () => {
   render(<App />);
 
